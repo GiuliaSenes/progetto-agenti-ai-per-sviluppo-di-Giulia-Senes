@@ -40,10 +40,6 @@ npm run dev     # http://localhost:5173
 ## Memoria
 Ogni messaggio utente/assistente è salvato in tabella `chat_message`. A ogni richiesta gli ultimi 30 messaggi della conversazione vengono reinviati all'LLM. Locale: H2 su file (`backend/data`). Produzione: imposta `SPRING_DATASOURCE_URL` (+ `_USERNAME`, `_PASSWORD`) verso PostgreSQL gratuito (Neon/Supabase/Render), perché il disco di Render free è effimero.
 
-## Deploy (gratuito)
-- **Backend → Render** (Web Service, Docker o runtime Java): build `mvn -DskipTests package`, start `java -jar target/co2-agent-1.0.0.jar`. Variabili: `LLM_API_KEY`, `ECOFREIGHT_API_KEY`, `FRONTEND_ORIGIN` (URL Netlify), `SPRING_DATASOURCE_*`.
-- **Frontend → Netlify**: base `frontend`, build `npm run build`, publish `dist`, variabile `VITE_API_URL` = URL del backend Render.
-
 ## Note
 - EcoFreight è un'API di *trasporto merci*: la stima si basa su peso × distanza con un veicolo predefinito per modalità (strada: furgone, treno: diesel, nave: portacontainer, aereo: cargo in stiva). Il system prompt la presenta come stima.
 - La UI è un chat custom in React; si può sostituire con i componenti di shadcn.io/ai mantenendo le stesse chiamate API.
