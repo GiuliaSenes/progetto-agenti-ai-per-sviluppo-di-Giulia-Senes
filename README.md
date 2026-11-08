@@ -43,3 +43,4 @@ Ogni messaggio utente/assistente è salvato in tabella `chat_message`. A ogni ri
 ## Note
 - EcoFreight è un'API di *trasporto merci*: la stima si basa su peso × distanza con un veicolo predefinito per modalità (strada: furgone, treno: diesel, nave: portacontainer, aereo: cargo in stiva). Il system prompt la presenta come stima.
 - La UI è un chat custom in React; si può sostituire con i componenti di shadcn.io/ai mantenendo le stesse chiamate API.
+- Link Netlify per testare l'applicazione: https://progetto-agenti-ai-per-sviluppo.netlify.app
