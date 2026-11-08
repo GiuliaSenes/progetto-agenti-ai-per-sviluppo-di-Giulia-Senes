@@ -1,0 +1,27 @@
+# --- SEGRETI: non committare mai ---
+secrets.properties
+**/secrets.properties
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Build e dipendenze ---
+node_modules/
+dist/
+target/
+*.log
+
+# --- Database locale (H2) ---
+data/
+*.mv.db
+*.trace.db
+
+# --- IDE / sistema ---
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+.claude/

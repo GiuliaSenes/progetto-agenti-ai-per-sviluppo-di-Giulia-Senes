@@ -1,0 +1,4 @@
+target/
+data/
+secrets.properties
+.idea/
