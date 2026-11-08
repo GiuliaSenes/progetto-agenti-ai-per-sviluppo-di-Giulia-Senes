@@ -33,7 +33,6 @@ public class ChatService {
     public ChatResponse chat(String conversationId, String userText) {
         String id = (conversationId == null || conversationId.isBlank()) ? UUID.randomUUID().toString() : conversationId;
 
-        // Memoria: ultimi N messaggi della conversazione, in ordine cronologico
         List<Message> history = new ArrayList<>(repo.findByConversationIdOrderByIdDesc(id, PageRequest.of(0, props.historyLimit())));
         Collections.reverse(history);
 
@@ -44,7 +43,6 @@ public class ChatService {
 
         String reply = llm.complete(messages);
 
-        // Persisto solo a risposta ottenuta, così un errore dell'LLM non lascia turni orfani
         repo.save(new Message(id, "user", userText));
         repo.save(new Message(id, "assistant", reply.length() > 8000 ? reply.substring(0, 8000) : reply));
         return new ChatResponse(id, reply);

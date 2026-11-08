@@ -13,7 +13,7 @@ public class Co2Tool {
 
     public static final String NAME = "calculate_co2";
 
-    /** Veicolo predefinito per ogni modalità (l'utente non tecnico non deve sceglierlo). */
+    /** Veicolo predefinito per ogni modalità . */
     private static final Map<String, String> DEFAULT_VEHICLE = Map.of(
             "road", "light_commercial_under_7_5t",
             "rail", "diesel_freight",
